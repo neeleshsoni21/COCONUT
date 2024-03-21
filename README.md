@@ -1,2 +1,2 @@
 # COCONUT
-COiled-COil aNalysis UTility Server
+COiled-COil aNalysis UTility
