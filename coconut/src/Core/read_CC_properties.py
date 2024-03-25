@@ -576,11 +576,37 @@ def generate_AA_pairs_frequency(dimers):
 			#Get dodec pairs considering anti-parallel dimers
 			Res_stats  = funcdict[-1](key,value,Res_stats);
 
+	'''
+	#For Gathering Stats
 
 	#Sort according to key  then value
-	#Res_pairs_aa_sorted=sorted(Res_pairs_aa.items(),key=itemgetter(0,0,1), reverse=False)
-	#Res_pairs_dd_sorted=sorted(Res_pairs_dd.items(),key=itemgetter(0,0,1), reverse=False)
-	#Res_pairs_ad_sorted=sorted(Res_pairs_ad.items(),key=itemgetter(0,0,1), reverse=False)
+	from operator import itemgetter
+	Res_pairs_aa_sorted=sorted(Res_pairs_aa.items(),key=lambda x:x[1], reverse=True)
+	Res_pairs_dd_sorted=sorted(Res_pairs_dd.items(),key=lambda x:x[1], reverse=True)
+	Res_pairs_ad_sorted=sorted(Res_pairs_ad.items(),key=lambda x:x[1], reverse=True)
+	totalaa=0;totaldd=0;totalad=0
+	for k,v in list(Res_pairs_aa_sorted):
+		totalaa+=v
+	for k,v in list(Res_pairs_dd_sorted):
+		totaldd+=v
+	for k,v in list(Res_pairs_ad_sorted):
+		totalad+=v
+
+	totalaa1=0;totaldd1=0;totalad1=0
+	print("\nTotal aa:",totalaa)
+	for k,v in list(Res_pairs_aa_sorted)[0:5]:
+		print(k,v);totalaa1+=v
+	print("Total %:",int(100*totalaa1/totalaa))
+	print("\nTotal dd:",totaldd)
+	for k,v in list(Res_pairs_dd_sorted)[0:5]:
+		print(k,v);totaldd1+=v
+	print("Total %:",int(100*totaldd1/totaldd))
+	print("\nTotal ad:",totalad)
+	for k,v in list(Res_pairs_ad_sorted)[0:5]:
+		print(k,v);totalad1+=v
+	print("Total %:",int(100*totalad1/totalad))
+	'''
+
 
 	#First normalize according to the frequency
 	Res_stats = total_normalize_dicts(Res_stats)
