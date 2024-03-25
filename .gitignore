@@ -6,5 +6,5 @@ __pycache__
 doc/.DS_Store
 coconut/example/*/*.*
 *.pyc
-*.pdf
+ coconut/src/Models/Plots/*.pdf
 *.gpickle
