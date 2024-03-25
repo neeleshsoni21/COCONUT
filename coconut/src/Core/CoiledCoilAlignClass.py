@@ -1,4 +1,5 @@
-
+"""Summary
+"""
 ################################################################################
 #   Copyright (C) 2016-2024 Neelesh Soni <neeleshsoni03@gmail.com>,
 #   <neelesh.soni@alumni.iiserpune.ac.in>
@@ -56,7 +57,6 @@ class CoiledCoilAlign:
 	"""Summary
 	
 	Attributes:
-	    AXIAL_RISE_PER_RESIDUE (float): Description
 	    BaseAlignmentFile (TYPE): Description
 	    constant_score (float): Description
 	    fsseq1 (TYPE): Description
@@ -67,15 +67,16 @@ class CoiledCoilAlign:
 	    PROB_CUTOFF (TYPE): Description
 	    prot1 (TYPE): Description
 	    prot2 (TYPE): Description
-	    RESIDUES_PER_TURN (float): Description
 	    topk (int): Description
+	
+
 	"""
 	
 	#https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7122542/
-	RESIDUES_PER_TURN=3.5
+	#RESIDUES_PER_TURN=3.5
 
 	#https://pubmed.ncbi.nlm.nih.gov/14222887/
-	AXIAL_RISE_PER_RESIDUE=1.485
+	#AXIAL_RISE_PER_RESIDUE=1.485
 
 	def __init__(self, ppath, prot1_prot2, pc_prot1_file, pc_prot2_file, PROB_CUTOFF, BaseAlignmentFile=None):
 		"""Summary
@@ -920,7 +921,11 @@ class CoiledCoilAlign:
 		self.plot_tree(alignments,ppath+prot1_prot2+'_alignment_graph.pdf')
 
 	def get_hamming_distances(self):
-
+		"""Summary
+		
+		Returns:
+		    TYPE: Description
+		"""
 		HammDistances=[]
 		for i,tracepath_i in enumerate(TRACE):
 			"""<FRESHLY_INSERTED>"""
@@ -957,6 +962,17 @@ class CoiledCoilAlign:
 		return
 
 	def write_alignment(self, alignment,prot1, prot2, outfilename):
+		"""Summary
+		
+		Args:
+		    alignment (TYPE): Description
+		    prot1 (TYPE): Description
+		    prot2 (TYPE): Description
+		    outfilename (TYPE): Description
+		
+		Returns:
+		    TYPE: Description
+		"""
 		outf = open(outfilename,'w')
 		outf.write('\n>'+prot1+'\n')
 		outf.write(alignment[0])
@@ -967,6 +983,19 @@ class CoiledCoilAlign:
 		return
 
 	def write_alignment_with_heptad(self, alignment, prot1, prot2, p1_PC, p2_PC, outfilename):
+		"""Summary
+		
+		Args:
+		    alignment (TYPE): Description
+		    prot1 (TYPE): Description
+		    prot2 (TYPE): Description
+		    p1_PC (TYPE): Description
+		    p2_PC (TYPE): Description
+		    outfilename (TYPE): Description
+		
+		Returns:
+		    TYPE: Description
+		"""
 		resnum=0;alilines1,heplines1="",""
 		
 		for ch in alignment[0]:
@@ -1010,7 +1039,18 @@ class CoiledCoilAlign:
 		return
 
 	def read_coco_alignment_graph_new(self, seq1, seq2, ppath,prot1_prot2, topk):
-
+		"""Summary
+		
+		Args:
+		    seq1 (TYPE): Description
+		    seq2 (TYPE): Description
+		    ppath (TYPE): Description
+		    prot1_prot2 (TYPE): Description
+		    topk (TYPE): Description
+		
+		Returns:
+		    TYPE: Description
+		"""
 		#get the length of the sequences in two variables, n and m
 		n = len(seq1)
 		m = len(seq2)
@@ -1061,7 +1101,24 @@ class CoiledCoilAlign:
 		return
 
 	def Write_Topn_Alignments(self, oaname, topn, prot1, prot2, seq1, seq2, TRACE, TRACE_SEGMENT, ALI1, ALI2, ALISCORE):
-
+		"""Summary
+		
+		Args:
+		    oaname (TYPE): Description
+		    topn (TYPE): Description
+		    prot1 (TYPE): Description
+		    prot2 (TYPE): Description
+		    seq1 (TYPE): Description
+		    seq2 (TYPE): Description
+		    TRACE (TYPE): Description
+		    TRACE_SEGMENT (TYPE): Description
+		    ALI1 (TYPE): Description
+		    ALI2 (TYPE): Description
+		    ALISCORE (TYPE): Description
+		
+		Returns:
+		    TYPE: Description
+		"""
 		owlines=""
 
 		#Obtain pseudo-crosslinks possible for every alignment
@@ -1100,7 +1157,20 @@ class CoiledCoilAlign:
 		return
 
 	def add_sequence_at_cterm(self, ali1,ali2,seq1,seq2,ali1e,ali2e,segment):
-
+		"""Summary
+		
+		Args:
+		    ali1 (TYPE): Description
+		    ali2 (TYPE): Description
+		    seq1 (TYPE): Description
+		    seq2 (TYPE): Description
+		    ali1e (TYPE): Description
+		    ali2e (TYPE): Description
+		    segment (TYPE): Description
+		
+		Returns:
+		    TYPE: Description
+		"""
 		lenccseg1 = len(seq1[ali1e:])
 		lenccseg2 = len(seq2[ali2e:])
 
@@ -1123,7 +1193,20 @@ class CoiledCoilAlign:
 		return ali1,ali2
 
 	def add_sequence_with_gaps(self, ali1,ali2,seq1,seq2,ali1e,ali2e,segment):
-
+		"""Summary
+		
+		Args:
+		    ali1 (TYPE): Description
+		    ali2 (TYPE): Description
+		    seq1 (TYPE): Description
+		    seq2 (TYPE): Description
+		    ali1e (TYPE): Description
+		    ali2e (TYPE): Description
+		    segment (TYPE): Description
+		
+		Returns:
+		    TYPE: Description
+		"""
 		lenccseg1 = len(seq1[ali1e:segment[0]])
 		lenccseg2 = len(seq2[ali2e:segment[2]])
 
@@ -1147,7 +1230,19 @@ class CoiledCoilAlign:
 		return ali1,ali2
 
 	def get_tracepath_alignments_fullseq(self, alignments, sourceid, targetid, seq1,seq2, topk):
-
+		"""Summary
+		
+		Args:
+		    alignments (TYPE): Description
+		    sourceid (TYPE): Description
+		    targetid (TYPE): Description
+		    seq1 (TYPE): Description
+		    seq2 (TYPE): Description
+		    topk (TYPE): Description
+		
+		Returns:
+		    TYPE: Description
+		"""
 		TRACE=[]
 		TRACE_SEGMENT=[]
 		ALI1=[]
