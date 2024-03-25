@@ -7,3 +7,5 @@ docs/.DS_Store
 coconut/example/*/*.*
 *.pyc
 *.gpickle
+coconut/src/Models/Plots/*.pdf
+coconut/example/pipeline1/*/*.*
