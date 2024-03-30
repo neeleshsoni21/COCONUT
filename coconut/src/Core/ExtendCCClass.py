@@ -167,7 +167,7 @@ class ExtendCoiledCoil:
 
 		self.DistMat = np.zeros((len(self.p1_PC.keys()),len(self.p2_PC.keys())))
 
-		
+		print(self.ppath,self.prot1,self.prot2)
 		inf = open(self.ppath+self.prot1+'_'+self.prot2+'_CoiledCoil_Scores_'+self.phep1+'.dat','r')
 		lines=inf.readlines()
 		inf.close()
@@ -488,7 +488,10 @@ class ExtendCoiledCoil:
 		outf.close()
 
 		if plot_True:
-			figsize1=(4,3)
+			n = len(self.p1_PC.keys())
+			m = len(self.p2_PC.keys())
+			figscale_const = int(float(np.max([n,m])/800)+1)
+			figsize1=(4*figscale_const,3*figscale_const)
 			self.plot_alignment( APFlag, figsize1)
 
 		return

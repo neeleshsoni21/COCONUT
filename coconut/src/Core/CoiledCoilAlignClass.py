@@ -217,7 +217,9 @@ class CoiledCoilAlign:
 		alignment_file = self.BaseAlignmentFile
 		Segment_Dict_full = self.add_alignment_scores_segmentdict(Segment_Dict_full, seq1, seq2, alignment_file, self.constant_score )
 		
-		fig,ax = plt.subplots(figsize=((4,3)))
+		
+		figscale_const = int(float(np.max([n,m])/800)+1)
+		fig,ax = plt.subplots(figsize=((4*figscale_const,3*figscale_const)))
 
 		score_cutoff=0.0
 		
@@ -329,7 +331,9 @@ class CoiledCoilAlign:
 			pickle.dump(alignments, f, pickle.HIGHEST_PROTOCOL)
 
 		#self.plot_segments(Segment_Dict_full,ax,1.0,2.0,None,score_cutoff)
+		#self.plot_segments(Segment_Dict_full,ax,2.0,5.0,None,score_cutoff)
 		self.plot_segments(Segment_Dict_full,ax,2.0,5.0,None,score_cutoff)
+
 		##plt.scatter(ALL_XLINKS_PAIRS[:,0],ALL_XLINKS_PAIRS[:,1],s=1,zorder=3)
 		
 		print("Ploting alignment")
