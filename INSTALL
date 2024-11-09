@@ -1,0 +1,13 @@
+
+
+Required libraries can be installed in two ways:
+
+1. Installing libraries individually
+
+conda create -n ccnut python=3.12.3
+conda activate ccnut
+conda install anaconda::matplotlib anaconda::seaborn anaconda::scipy anaconda::scikit-learn anaconda::tqdm anaconda::networkx
+
+2. Using environment file provided in the distribution:
+
+conda env create -f environment.yml

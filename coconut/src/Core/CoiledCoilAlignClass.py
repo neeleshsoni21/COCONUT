@@ -707,7 +707,8 @@ class CoiledCoilAlign:
 			lc = mc.LineCollection(Data_Line,color=seg_color2, linewidths=lwd)
 			lines = ax.add_collection(lc)
 			sm = plt.cm.ScalarMappable(cmap=coolmap, norm=plt.Normalize(vmin=0, vmax=1))
-			plt.colorbar(sm)
+			sm.set_array([])
+			plt.colorbar(sm, ax=ax)
 				
 		else:
 			#lc = mc.LineCollection(Data_Line,color=seg_color, linewidths=lwd,linestyle='dotted')

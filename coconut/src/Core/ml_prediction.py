@@ -281,7 +281,7 @@ def train_RF_models_plot(CCDDIR, CCNETDIR,CCPLOTDIR, DIMERS,model_obj):
 	plt.ylabel("Prediction Accuracy (%)")
 	plt.title("Prediction accuracy across dimer-length")
 	lngd = plt.legend(("Prediction Accuracy","Number of Dimers"))
-	lngd.legendHandles[1].set_sizes([20.0])
+	lngd.legend_handles[1].set_sizes([20.0])
 	plt.savefig(CCPLOTDIR+'/Prediction_accuracy_dimer_length.pdf')
 
 
