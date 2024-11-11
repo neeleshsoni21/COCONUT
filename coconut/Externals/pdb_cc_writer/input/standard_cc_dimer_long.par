@@ -1,0 +1,29 @@
+######################################
+#   Values tested on leucine zipper  #
+######################################
+
+#Leucine Zipper PDB:2zta is a left handed super helix with each helices as right handed
+
+#Number of strands
+NumStrand = 2
+
+#Radius if Major/larger helix locus. 5.1 for canonical 2strand coiled-coils,  6.3 for trimer, 6.8 for tetramer, 8.6 for pentamer, 9.1 for hexamer; 4.8 for 2zta
+Radius_Major_Helix = 4.8
+
+#Pitch of the Major helix locus. -ive for left handed helices, +ive for right handed helices
+Pitch = -145
+
+#Axial rise per amino acid. 1.495 for polyalanine; Number of residues/major_turn = Pitch/h
+h = 1.472
+
+#Radius if Minor/smaller helix locus. 2.1 for strandard helices
+Radius_Minor_Helix = 2.1
+
+#Periodicity of hydrophobic residues. Number of residues/minor_turn; 3.5 for canonical coiled-coils
+Periodicity = 3.5
+
+#Interface angle between helices (in degrees)
+Interface_angle = 24
+
+#Initial Register
+Register = g

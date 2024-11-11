@@ -25,6 +25,7 @@ import coconut as cc
 
 cc_t_obj = cc.COCONUT()
 
+'''
 cc_t_obj.train_coconut_models()
 
 
@@ -64,4 +65,50 @@ example1(data_dir, protein1, protein1_pcoils, protein2, protein2_pcoils)
 from test_model_database import test_model
 
 test_model()
+'''
+
+
+
+#-------------------------------#
+#Code for generating PDB files for the coiled-coils
+#using alignment files. Standard coiled-coils can also be constructed
+#Some examples
+#-------------------------------#
+
+from cc_writer import *
+
+ExampleRoot = os.path.join(cc_t_obj._COCO_ROOT,'./Externals/pdb_cc_writer/')
+#Modeling of 2zta pdb
+run_example1(ExampleRoot)
+
+#Modeling of 2zta long
+run_example2(ExampleRoot)
+
+#Modeling for cc builder comparison
+run_example3(ExampleRoot)
+
+#Modeling of standard trimer
+run_example4(ExampleRoot)
+
+#This is for Nup60 modeling
+cc_segments=[ [[27,47],[27,47],'g'],  [[91,104],[91,104],'g'],[[106,119],[106,119],'g'],  [[121,140],[121,140],'g'],[[142,162],[142,162],'g']]
+run_example7(ExampleRoot, cc_segments)
+
+#This is for Nup1 modeling
+cc_segments=[ [[1,32],[1,32],'g'],  [[85,104],[85,104],'g'],[[106,123],[106,123],'g']]
+run_example8(ExampleRoot, cc_segments)
+
+#This is for generic or unified MLPs model
+run_example9(ExampleRoot)
+
+#This is for Mouse TPR Modeling
+run_example12(ExampleRoot)
+
+#This is for Nup153 modeling mouse
+cc_segments=[ [[36,57],[36,57],'g'] ]
+run_example13(ExampleRoot, cc_segments)
+
+#This is for Keratin dimer modeling
+run_example15(ExampleRoot)
+
 

@@ -1,0 +1,41 @@
+"""
+Crick-1953-Acta-Cryst;The Fourier transport of a coiled-coil
+Lupas-2005-Adv Protein Chem; The structure of α-helical coiled coils
+#########################################################
+		p0 = pitch of larger helix
+		alpha = 1/2 of helix crossing angle
+		r0 = radius of larger helix; 5.1 for dimer, 
+				6.3 for trimer. 6.8 for tetramer, 
+				8.6 for pentamer, 9.1 for hexamer
+		r1 = radius of smaller helix; 2.1 for helices
+		h  = axial rise per amino acids 1.495 for polyalanine
+		p  = periodicity of hydrophobic residues. 3.5 for canonical coiled-coils
+		Interface angle = 2 * alpha => Interface angle between two helices, alpha=12 for 2-helix
+		
+		w0 = angle between two residues projected on x-y plane for major helix axis
+		w1 = angle between two residues projected on x-y plane for minor helix axis
+				#+ive for Right handed helix, -ive for left handed helix
+		N0 = Number of turns major helix makes in axial distance p0(Pitch) = 1
+		N1 = Number of turns minor helix makes in axial distance p0
+		
+		number of residues in axial distance p0 = p0/h
+		Since 2*p=7; -> 7 residues in 2 rotation; 
+		7*h axial distance -> 2 rotations or turns; 
+		In p0 axial distance -> (p0/h)*(2/7) = N1 ; N0 = 1;
+		
+		7 residues -> 2 turns -> 2*2pi angle
+		w1 = angle btw two residues -> 2pi*(2/7)
+		
+		Since:	-w1/w0 = N1/N0
+		w0 = -w1*(N0/N1) = -2pi*h/p0
+
+
+#################################################
+#Benchmarking
+#Results of comparisons of chain A superimpositions
+	# ccbuilder 0.401
+	# 2zta 0.566
+	# 2zta_long_17mer 0.780
+	# standard trimer 0.519
+#################################################
+

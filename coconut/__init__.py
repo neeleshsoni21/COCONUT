@@ -22,6 +22,7 @@ sys.path.insert(1, './coconut/src')
 sys.path.insert(1, './coconut/src/Core')
 sys.path.insert(1, './coconut/src/Models/')
 sys.path.insert(1, './coconut/example')
+sys.path.insert(1, './coconut/Externals/pdb_cc_writer')
 
 from CoconutClass import COCONUT
 
